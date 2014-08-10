@@ -84,7 +84,9 @@ fi
 if [[ $SIMPLI_EXEC_MODE = "sudo" ]]; then
 	apt-get update
 	OSL_EXIT_abort_execution_if_bad_retcode $? "Error updating apt !"
+	## keep our machine up to date
 	apt-get upgrade --yes
+	## keep our machine clean and lean
 	apt-get autoremove --yes
 fi
 

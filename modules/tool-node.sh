@@ -52,6 +52,7 @@ ensure_tool-node_sourced()
 	local module_version="$1"
 
 	ensure_tool-nvm_sourced
+	echo "testing nvm use v$module_version &> /dev/null"
 	nvm use "v$module_version" &> /dev/null
 	return $?
 }
@@ -70,13 +71,16 @@ require_npm_global_module()
 	SIMPLI_log_call "[$FUNCNAME($*)]"
 	[[ $SIMPLI_EXEC_MODE = "sudo" ]] && return 0; ## npm packages are user only
 
-	local module_name="$1"
+	local node_version="$1"
+	local module_name="$2"
+
+	ensure_tool-node_sourced $node_version
 
 	## npm list is slow. We'll directly check folder presence
 	local package_dir="$NODE_PATH/$module_name"
-	[[ -d "$package_dir" ]] && return 0
+	[[ -d "$package_dir" ]] && return 0 ## already installed
 	npm install --global $module_name
-	OSL_EXIT_abort_execution_if_bad_retcode $? "npm module '$module_name' couldn't be installed !"
+	OSL_EXIT_abort_execution_if_bad_retcode $? "npm module '$module_name' couldn't be installed for node v$node_version !"
 
 	return 0
 }
