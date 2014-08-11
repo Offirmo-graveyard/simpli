@@ -50,4 +50,9 @@ get_installed_tool-nvm_summary()
 	nvm --version
 }
 
+get_installed_tool-nvm_version()
+{
+	nvm --version
+}
+
 return 0

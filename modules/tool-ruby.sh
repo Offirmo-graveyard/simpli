@@ -49,6 +49,12 @@ get_installed_tool-ruby_summary()
 	ruby --version
 }
 
+get_installed_tool-ruby_version()
+{
+	# TODO
+	ruby --version
+}
+
 
 ## additional utilities
 require_gem()

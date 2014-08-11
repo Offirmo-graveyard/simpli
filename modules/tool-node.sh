@@ -64,6 +64,11 @@ get_installed_tool-node_summary()
 	node --version
 }
 
+get_installed_tool-node_version()
+{
+	#TODO tricky
+}
+
 
 ## additional utilities
 require_npm_global_module()

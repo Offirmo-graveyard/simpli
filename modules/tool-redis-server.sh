@@ -45,4 +45,10 @@ get_installed_tool-redis-server_summary()
 	redis-server --version
 }
 
+get_installed_tool-redis-server_version()
+{
+	#TODO
+	redis-server --version
+}
+
 return 0

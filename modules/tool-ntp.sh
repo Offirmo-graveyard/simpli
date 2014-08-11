@@ -46,4 +46,10 @@ get_installed_tool-ntp_summary()
 	ntpd --version | head -n 1
 }
 
+get_installed_tool-ntp_version()
+{
+	#TODO
+	ntpd --version | head -n 1
+}
+
 return 0

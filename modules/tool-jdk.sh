@@ -46,4 +46,10 @@ get_installed_tool-jdk_summary()
 	java -version | grep 'version'
 }
 
+get_installed_tool-jdk_version()
+{
+	## TODO !
+	java -version
+}
+
 return 0

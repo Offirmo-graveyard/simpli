@@ -46,4 +46,10 @@ get_installed_tool-python_summary()
 	python --version 2>&1
 }
 
+get_installed_tool-python_version()
+{
+	#TODO
+	python --version 2>&1
+}
+
 return 0

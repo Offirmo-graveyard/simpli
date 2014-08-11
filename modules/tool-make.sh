@@ -47,4 +47,9 @@ get_installed_tool-make_summary()
 	make --version | grep 'GNU Make'
 }
 
+get_installed_tool-make_version()
+{
+	#TODO
+}
+
 return 0

@@ -17,6 +17,9 @@ echo "  - LC_ALL ? `echo $LC_ALL`"
 ## safety
 export LC_ALL="en_US.UTF-8"
 
+## prepare env
+#OSL_debug_activated=true
+
 ## Are we running on a vagrant-generated machine, presumably launched by vagrant-provision ?
 ## Or on a test machine launched by hand ?
 if [[ -d /vagrant ]]; then

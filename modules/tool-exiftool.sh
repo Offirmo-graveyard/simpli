@@ -75,11 +75,12 @@ ensure_tool-exiftool_sourced()
 ## output one-line info (version, build, etc.)
 get_installed_tool-exiftool_summary()
 {
-	get_tool-exiftool_version
+	get_installed_tool-exiftool_version
 }
 
-get_tool-exiftool_version()
+get_installed_tool-exiftool_version()
 {
+	# nice
 	exiftool -ver
 }
 

@@ -45,4 +45,10 @@ get_installed_tool-postgresql_summary()
 	psql --version
 }
 
+get_installed_tool-postgresql_version()
+{
+	#TODO
+	psql --version
+}
+
 return 0

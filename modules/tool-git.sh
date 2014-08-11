@@ -45,6 +45,11 @@ get_installed_tool-git_summary()
 	git --version
 }
 
+get_installed_tool-git_version()
+{
+	## TODO !
+	git --version
+}
 
 
 ####### Utilities #######

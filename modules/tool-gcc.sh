@@ -41,6 +41,12 @@ ensure_tool-gcc_sourced()
 
 get_installed_tool-gcc_summary()
 {
+	get_installed_tool-gcc_version
+}
+
+get_installed_tool-gcc_version()
+{
+	# nice
 	gcc -dumpversion
 }
 

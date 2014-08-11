@@ -9,7 +9,6 @@ SIMPLI_DIR=`dirname "$BASH_SOURCE"`/..
 ## note that dir may be relative. Ok for now until we load OSL
 
 ## We use the OSL shell lib. Load it.
-OSL_debug_activated=true
 ## To ease shipment, we have an embedded OSL copy
 ## but we'll use system one if it's more recent.
 ## There is a technique for that (cf. OSL doc)
