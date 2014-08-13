@@ -6,33 +6,33 @@ SIMPLI_log_source `basename "$BASH_SOURCE"`
 require_apt_packet git
 
 
-check_tool-git_installed_sudo()
+check_git_installed_sudo()
 {
 	SIMPLI_log_call "[$FUNCNAME($*)]"
 	## nothing, apt only
 	return 0
 }
-ensure_tool-git_installed_sudo()
-{
-	SIMPLI_log_call "[$FUNCNAME($*)]"
-	## nothing, apt only
-	return 0
-}
-
-check_tool-git_installed_user()
-{
-	SIMPLI_log_call "[$FUNCNAME($*)]"
-	## nothing, apt only
-	return 0
-}
-ensure_tool-git_installed_user()
+ensure_git_installed_sudo()
 {
 	SIMPLI_log_call "[$FUNCNAME($*)]"
 	## nothing, apt only
 	return 0
 }
 
-ensure_tool-git_sourced()
+check_git_installed_user()
+{
+	SIMPLI_log_call "[$FUNCNAME($*)]"
+	## nothing, apt only
+	return 0
+}
+ensure_git_installed_user()
+{
+	SIMPLI_log_call "[$FUNCNAME($*)]"
+	## nothing, apt only
+	return 0
+}
+
+ensure_git_sourced()
 {
 	#SIMPLI_log_call "[$FUNCNAME($*)]"
 	## nothing
@@ -40,12 +40,12 @@ ensure_tool-git_sourced()
 }
 
 ## output one-line info (version, build, etc.)
-get_installed_tool-git_summary()
+get_installed_git_summary()
 {
 	git --version
 }
 
-get_installed_tool-git_version()
+get_installed_git_version()
 {
 	## TODO !
 	git --version
@@ -55,7 +55,7 @@ get_installed_tool-git_version()
 ####### Utilities #######
 
 ## Ensure checkout of a git repo.
-## WARNING tool-git must be required manually before using this function.
+## WARNING git must be required manually before using this function.
 ## WARNING appropriate git credentials must be set if required !
 ## XXX removed for now : The optional 2nd param is the destination dir :
 ## - If not provided, repo will be checked out in user mode in $USER_GIT_AREA_PATH/xyz

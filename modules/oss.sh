@@ -4,17 +4,17 @@
 SIMPLI_log_source `basename "$BASH_SOURCE"`
 
 ## prerequisites :
-require tool-jdk '~7'
+require jdk '~7'
 
 
-check_tool-oss_installed_sudo()
+check_oss_installed_sudo()
 {
 	SIMPLI_log_call "[$FUNCNAME($*)]"
 	OSL_OUTPUT_warn_not_implemented "[$FUNCNAME()]"
 	## nothing
 	return 1
 }
-ensure_tool-oss_installed_sudo()
+ensure_oss_installed_sudo()
 {
 	OSL_debug "[$FUNCNAME($*)]"
 	OSL_OUTPUT_warn_not_implemented "[$FUNCNAME()]"
@@ -22,14 +22,14 @@ ensure_tool-oss_installed_sudo()
 	return 1
 }
 
-check_tool-oss_installed_user()
+check_oss_installed_user()
 {
 	OSL_debug "[$FUNCNAME($*)]"
 	OSL_OUTPUT_warn_not_implemented "[$FUNCNAME()]"
 	## nothing
 	return 1
 }
-ensure_tool-oss_installed_user()
+ensure_oss_installed_user()
 {
 	OSL_debug "[$FUNCNAME($*)]"
 	OSL_OUTPUT_warn_not_implemented "[$FUNCNAME()]"
@@ -37,7 +37,7 @@ ensure_tool-oss_installed_user()
 	return 1
 }
 
-ensure_tool-oss_sourced()
+ensure_oss_sourced()
 {
 	#OSL_debug "[$FUNCNAME($*)]"
 	OSL_OUTPUT_warn_not_implemented "[$FUNCNAME()]"
@@ -46,10 +46,10 @@ ensure_tool-oss_sourced()
 }
 
 ## output one-line info (version, build, etc.)
-get_installed_tool-oss_summary()
+get_installed_oss_summary()
 {
 	#OSL_debug "[$FUNCNAME($*)]"
-	ensure_tool-oss_sourced
+	ensure_oss_sourced
 	OSL_OUTPUT_warn_not_implemented "[$FUNCNAME()]"
 	return 1
 }

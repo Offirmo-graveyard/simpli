@@ -4,67 +4,62 @@
 
 SIMPLI_log_source `basename "$BASH_SOURCE"`
 
-## prerequisites :
-## https://github.com/joyent/node/wiki/installation
-require tool-gcc '^4.2.0'
-require tool-make '^3.81.0'
-require tool-python '~2.6'
 
 ## we'll install node via nvm
-require tool-nvm '~0.7.0'
+require nvm '~0.7.0'
 
 
-check_tool-node_installed_sudo()
+check_node_installed_sudo()
 {
 	SIMPLI_log_call "[$FUNCNAME($*)]"
 	## nothing, installed in userland
 	return 0
 }
-ensure_tool-node_installed_sudo()
+ensure_node_installed_sudo()
 {
 	SIMPLI_log_call "[$FUNCNAME($*)]"
 	## nothing, installed in userland
 	return 0
 }
 
-check_tool-node_installed_user()
+check_node_installed_user()
 {
 	SIMPLI_log_call "[$FUNCNAME($*)]"
 	local module_version="$1"
 
-	ensure_tool-nvm_sourced
+	ensure_nvm_sourced
 	nvm use "v$module_version" &> /dev/null
 	return $?
 }
-ensure_tool-node_installed_user()
+ensure_node_installed_user()
 {
 	SIMPLI_log_call "[$FUNCNAME($*)]"
 	local module_version="$1"
 
-	ensure_tool-nvm_sourced
+	ensure_nvm_sourced
 	nvm install "v$module_version"
 	return $?
 }
 
-ensure_tool-node_sourced()
+ensure_node_sourced()
 {
 	#SIMPLI_log_call "[$FUNCNAME($*)]"
 	local module_version="$1"
 
-	ensure_tool-nvm_sourced
+	ensure_nvm_sourced
 	echo "testing nvm use v$module_version &> /dev/null"
 	nvm use "v$module_version" &> /dev/null
 	return $?
 }
 
 ## output one-line info (version, build, etc.)
-get_installed_tool-node_summary()
+get_installed_node_summary()
 {
-	ensure_tool-node_sourced
+	ensure_node_sourced
 	node --version
 }
 
-get_installed_tool-node_version()
+get_installed_node_version()
 {
 	#TODO tricky
 }
@@ -79,7 +74,7 @@ require_npm_global_module()
 	local node_version="$1"
 	local module_name="$2"
 
-	ensure_tool-node_sourced $node_version
+	ensure_node_sourced $node_version
 
 	## npm list is slow. We'll directly check folder presence
 	local package_dir="$NODE_PATH/$module_name"

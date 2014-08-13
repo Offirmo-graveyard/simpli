@@ -14,9 +14,6 @@ Lately at work, some VM provisioning was needed. I started a puppet config, then
 There had to be another way to do it. Time to try it my way !
 
 
-
-
-
 How simple ?
 ============
 
@@ -26,7 +23,21 @@ How simple ?
 * clear separation between root stuff and user stuff
 * makes strong assumptions to ease overall complexity (more about this below)
 
+
 Should I use it ?
 =================
 
+TODO
 
+How do I use it ?
+=================
+
+https://docs.google.com/spreadsheets/d/1s7fYxqqWLO5S1nSF_XQ7CbU48fp-PkmPbsBrgor9JLc
+
+apt
+
+env lines
+
+dirs
+
+version managers

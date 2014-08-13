@@ -162,9 +162,10 @@ require_apt_packet()
 }
 
 
+## param : a bash script line to be added to env file if not present.
+# env file is selected between sudo or user according to context
 require_env_line()
 {
-	echo "require_env_line"
 	SIMPLI_log_call "[$FUNCNAME($*)]"
 	local line="$*"
 
@@ -172,6 +173,38 @@ require_env_line()
 	[[ $SIMPLI_EXEC_MODE != "sudo" ]] && target_file=$USER_ENV_FILE
 
 	OSL_FILE_ensure_line_is_present_in_file "$line" "$target_file"
+
+	return 0
+}
+
+
+## copy all files from given dir to current user ~/.ssh dir
+## and fix permissions
+require_ssh_config_from()
+{
+	SIMPLI_log_call "[$FUNCNAME($*)]"
+	[[ $SIMPLI_EXEC_MODE != "user" ]] && return 0;
+
+	local source_dir="$*"
+
+	[[ $SIMPLI_SHOULD_AVOID_CRITICAL_OPS ]] && OSL_OUTPUT_notify "skipping critical op : ~/.ssh overwrite" && return 0;
+
+	return 1
+
+	#TODO
+
+	ls -la ~/.ssh
+	mkdir -p ~/.ssh/
+
+	## make a bkp for safety
+	if [[ ! -d ~/.ssh.simplibkp ]]; then
+		cp -r ~/.ssh ~/.ssh.simplibkp
+	fi
+
+	cp -r $source_dir/* ~/.ssh
+	chmod 644 ~/.ssh/*
+	chmod 600 ~/.ssh/id_rsa
+	ls -la ~/.ssh
 
 	return 0
 }

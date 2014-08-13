@@ -9,7 +9,7 @@ require_apt_packet  perl
 require_apt_packet  wget
 
 
-check_tool-exiftool_installed_sudo()
+check_exiftool_installed_sudo()
 {
 	SIMPLI_log_call "[$FUNCNAME($*)]"
 
@@ -18,13 +18,13 @@ check_tool-exiftool_installed_sudo()
 	[[ $? -ne 0 ]] && return 1
 
 	## now check version
-	local version=`get_tool-exiftool_version`
+	local version=`get_exiftool_version`
 	## TODO enhance
 	[[ "$version" = "9.53" ]] && return 0
 
 	return 1
 }
-ensure_tool-exiftool_installed_sudo()
+ensure_exiftool_installed_sudo()
 {
 	SIMPLI_log_call "[$FUNCNAME($*)]"
 
@@ -52,20 +52,20 @@ ensure_tool-exiftool_installed_sudo()
 	return $res
 }
 
-check_tool-exiftool_installed_user()
+check_exiftool_installed_user()
 {
 	SIMPLI_log_call "[$FUNCNAME($*)]"
 	## sudo only
 	return 0
 }
-ensure_tool-exiftool_installed_user()
+ensure_exiftool_installed_user()
 {
 	SIMPLI_log_call "[$FUNCNAME($*)]"
 	## sudo only
 	return 0
 }
 
-ensure_tool-exiftool_sourced()
+ensure_exiftool_sourced()
 {
 	#SIMPLI_log_call "[$FUNCNAME($*)]"
 	## nothing
@@ -73,12 +73,12 @@ ensure_tool-exiftool_sourced()
 }
 
 ## output one-line info (version, build, etc.)
-get_installed_tool-exiftool_summary()
+get_installed_exiftool_summary()
 {
-	get_installed_tool-exiftool_version
+	get_installed_exiftool_version
 }
 
-get_installed_tool-exiftool_version()
+get_installed_exiftool_version()
 {
 	# nice
 	exiftool -ver

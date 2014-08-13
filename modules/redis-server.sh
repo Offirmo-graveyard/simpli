@@ -1,38 +1,38 @@
 ## Shell provision script for
-## Java Development Kit
+## redis server
 
 SIMPLI_log_source `basename "$BASH_SOURCE"`
 
-require_apt_packet  postgresql
+require_apt_packet  redis-server
 
 
-check_tool-postgresql_installed_sudo()
+check_redis-server_installed_sudo()
 {
 	SIMPLI_log_call "[$FUNCNAME($*)]"
 	## nothing	## nothing, apt only
 	return 0
 }
-ensure_tool-postgresql_installed_sudo()
+ensure_redis-server_installed_sudo()
 {
 	SIMPLI_log_call "[$FUNCNAME($*)]"
 	## nothing, apt only
 	return 0
 }
 
-check_tool-postgresql_installed_user()
+check_redis-server_installed_user()
 {
 	SIMPLI_log_call "[$FUNCNAME($*)]"
 	## nothing, apt only
 	return 0
 }
-ensure_tool-postgresql_installed_user()
+ensure_redis-server_installed_user()
 {
 	SIMPLI_log_call "[$FUNCNAME($*)]"
 	## nothing, apt only
 	return 0
 }
 
-ensure_tool-postgresql_sourced()
+ensure_redis-server_sourced()
 {
 	#SIMPLI_log_call "[$FUNCNAME($*)]"
 	## nothing
@@ -40,15 +40,15 @@ ensure_tool-postgresql_sourced()
 }
 
 ## output one-line info (version, build, etc.)
-get_installed_tool-postgresql_summary()
+get_installed_redis-server_summary()
 {
-	psql --version
+	redis-server --version
 }
 
-get_installed_tool-postgresql_version()
+get_installed_redis-server_version()
 {
 	#TODO
-	psql --version
+	redis-server --version
 }
 
 return 0

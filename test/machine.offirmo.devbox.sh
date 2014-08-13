@@ -34,23 +34,11 @@ fi
 source ../bin/index.sh
 
 ## setup ssh key(s)
-if [[ -d /vagrant ]] && [[ $USER = "vagrant" ]]; then
-	## means we are on vagrant machine as user
-	echo "setting up ssh keys"
-	ls -la ~/.ssh
-	mkdir -p ~/.ssh/
-	if [[ ! -d ~/.ssh.provbkp ]]; then
-		cp -r ~/.ssh ~/.ssh.provbkp
-	fi
-	cp -r /vagrant/credentials/ssh/* ~/.ssh
-	chmod 644 ~/.ssh/*
-	chmod 600 ~/.ssh/id_rsa
-	ls -la ~/.ssh
-fi
+require_ssh_config_from toto
 
 ## provision our stuff
-require tool-ntp
-require tool-git '^1.8.2'
+require ntp
+require git '^1.8.2'
 
 # manual
 #require_apt_packet man
@@ -66,23 +54,24 @@ require_apt_packet htop
 # useful for misc operations. Also useful for some wordpress plugins
 require_apt_packet zip
 
+require nvm
 NODE_VERSION='0.10.30'
-require tool-node $NODE_VERSION
+#require_nvm_node $NODE_VERSION
 #require_npm_global_module npm_lazy
-require_npm_global_module $NODE_VERSION grunt-cli
-require_npm_global_module $NODE_VERSION npm-pkgr
+#require_nvm_node_npm_global_module $NODE_VERSION grunt-cli
+#require_nvm_node_npm_global_module $NODE_VERSION npm-pkgr
 
-if [[ $SIMPLI_EXEC_MODE = "user" ]]; then
+#if [[ $SIMPLI_EXEC_MODE = "user" ]]; then
 	#require_git_repo  git@github.com:Offirmo/html_tests.git
-	require_git_repo  git@github.com:Offirmo/offirmo-shell-lib.git
-	require_git_repo  git@github.com:Offirmo/example_webmodule.js.git
+	#require_git_repo  git@github.com:Offirmo/offirmo-shell-lib.git
+	#require_git_repo  git@github.com:Offirmo/example_webmodule.js.git
 	#require_git_repo  git@github.com:Offirmo/robot_d-animation_par_courriel.git
 	#require_git_repo  git@github.com:Offirmo/ecotree.js.git
 	#require_git_repo  git@github.com:Offirmo/cvm.git
 
-	require_git_repo  git@github.com:Thibaut/devdocs.git
-fi
-require tool-ruby '^2.1'
+	#require_git_repo  git@github.com:Thibaut/devdocs.git
+#fi
+require ruby '^2.1'
 gem env
 
 ## display a summary (user-mode only)

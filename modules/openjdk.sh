@@ -1,38 +1,38 @@
 ## Shell provision script for
-## redis server
+## Java Development Kit
 
 SIMPLI_log_source `basename "$BASH_SOURCE"`
 
-require_apt_packet  redis-server
+require_apt_packet  openjdk-7-jdk
 
 
-check_tool-redis-server_installed_sudo()
+check_jdk_installed_sudo()
 {
 	SIMPLI_log_call "[$FUNCNAME($*)]"
 	## nothing	## nothing, apt only
 	return 0
 }
-ensure_tool-redis-server_installed_sudo()
+ensure_jdk_installed_sudo()
 {
 	SIMPLI_log_call "[$FUNCNAME($*)]"
 	## nothing, apt only
 	return 0
 }
 
-check_tool-redis-server_installed_user()
+check_jdk_installed_user()
 {
 	SIMPLI_log_call "[$FUNCNAME($*)]"
 	## nothing, apt only
 	return 0
 }
-ensure_tool-redis-server_installed_user()
+ensure_jdk_installed_user()
 {
 	SIMPLI_log_call "[$FUNCNAME($*)]"
 	## nothing, apt only
 	return 0
 }
 
-ensure_tool-redis-server_sourced()
+ensure_jdk_sourced()
 {
 	#SIMPLI_log_call "[$FUNCNAME($*)]"
 	## nothing
@@ -40,15 +40,16 @@ ensure_tool-redis-server_sourced()
 }
 
 ## output one-line info (version, build, etc.)
-get_installed_tool-redis-server_summary()
+get_installed_jdk_summary()
 {
-	redis-server --version
+	## version is a paragraph beginning with line "java version "x.y.z""
+	java -version | grep 'version'
 }
 
-get_installed_tool-redis-server_version()
+get_installed_jdk_version()
 {
-	#TODO
-	redis-server --version
+	## TODO !
+	java -version
 }
 
 return 0

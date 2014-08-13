@@ -1,38 +1,38 @@
 ## Shell provision script for
-## Network Time Protocol client
+## Java Development Kit
 
 SIMPLI_log_source `basename "$BASH_SOURCE"`
 
-require_apt_packet  ntp
+require_apt_packet  postgresql
 
 
-check_tool-ntp_installed_sudo()
+check_postgresql_installed_sudo()
 {
 	SIMPLI_log_call "[$FUNCNAME($*)]"
 	## nothing	## nothing, apt only
 	return 0
 }
-ensure_tool-ntp_installed_sudo()
+ensure_postgresql_installed_sudo()
 {
 	SIMPLI_log_call "[$FUNCNAME($*)]"
 	## nothing, apt only
 	return 0
 }
 
-check_tool-ntp_installed_user()
+check_postgresql_installed_user()
 {
 	SIMPLI_log_call "[$FUNCNAME($*)]"
 	## nothing, apt only
 	return 0
 }
-ensure_tool-ntp_installed_user()
+ensure_postgresql_installed_user()
 {
 	SIMPLI_log_call "[$FUNCNAME($*)]"
 	## nothing, apt only
 	return 0
 }
 
-ensure_tool-ntp_sourced()
+ensure_postgresql_sourced()
 {
 	#SIMPLI_log_call "[$FUNCNAME($*)]"
 	## nothing
@@ -40,16 +40,15 @@ ensure_tool-ntp_sourced()
 }
 
 ## output one-line info (version, build, etc.)
-get_installed_tool-ntp_summary()
+get_installed_postgresql_summary()
 {
-	## version is on two lines
-	ntpd --version | head -n 1
+	psql --version
 }
 
-get_installed_tool-ntp_version()
+get_installed_postgresql_version()
 {
 	#TODO
-	ntpd --version | head -n 1
+	psql --version
 }
 
 return 0

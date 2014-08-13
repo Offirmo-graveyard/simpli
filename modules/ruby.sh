@@ -10,33 +10,33 @@ require_apt_packet ruby
 ##Updating system......
 ##Installing required packages: libreadline6-dev, zlib1g-dev, libssl-dev, libyaml-dev, libsqlite3-dev, sqlite3, pkg-config....
 
-check_tool-ruby_installed_sudo()
+check_ruby_installed_sudo()
 {
 	SIMPLI_log_call "[$FUNCNAME($*)]"
 	## nothing, apt only
 	return 0
 }
-ensure_tool-ruby_installed_sudo()
-{
-	SIMPLI_log_call "[$FUNCNAME($*)]"
-	## nothing, apt only
-	return 0
-}
-
-check_tool-ruby_installed_user()
-{
-	SIMPLI_log_call "[$FUNCNAME($*)]"
-	## nothing, apt only
-	return 0
-}
-ensure_tool-ruby_installed_user()
+ensure_ruby_installed_sudo()
 {
 	SIMPLI_log_call "[$FUNCNAME($*)]"
 	## nothing, apt only
 	return 0
 }
 
-ensure_tool-ruby_sourced()
+check_ruby_installed_user()
+{
+	SIMPLI_log_call "[$FUNCNAME($*)]"
+	## nothing, apt only
+	return 0
+}
+ensure_ruby_installed_user()
+{
+	SIMPLI_log_call "[$FUNCNAME($*)]"
+	## nothing, apt only
+	return 0
+}
+
+ensure_ruby_sourced()
 {
 	#SIMPLI_log_call "[$FUNCNAME($*)]"
 	## nothing needed
@@ -44,12 +44,12 @@ ensure_tool-ruby_sourced()
 }
 
 ## output one-line info (version, build, etc.)
-get_installed_tool-ruby_summary()
+get_installed_ruby_summary()
 {
 	ruby --version
 }
 
-get_installed_tool-ruby_version()
+get_installed_ruby_version()
 {
 	# TODO
 	ruby --version

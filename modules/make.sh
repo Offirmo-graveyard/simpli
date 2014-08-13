@@ -1,53 +1,55 @@
 ## Shell provision script for :
-## GNU Compiler Collection (gcc)
+## GNU make
 
 SIMPLI_log_source `basename "$BASH_SOURCE"`
 
 require_apt_packet build-essential
 
 
-check_tool-gcc_installed_sudo()
+check_make_installed_sudo()
 {
 	SIMPLI_log_call "[$FUNCNAME($*)]"
 	## nothing, apt only
 	return 0
 }
-ensure_tool-gcc_installed_sudo()
-{
-	SIMPLI_log_call "[$FUNCNAME($*)]"
-	## nothing, apt only
-	return 0
-}
-
-check_tool-gcc_installed_user()
-{
-	SIMPLI_log_call "[$FUNCNAME($*)]"
-	## nothing, apt only
-	return 0
-}
-ensure_tool-gcc_installed_user()
+ensure_make_installed_sudo()
 {
 	SIMPLI_log_call "[$FUNCNAME($*)]"
 	## nothing, apt only
 	return 0
 }
 
-ensure_tool-gcc_sourced()
+check_make_installed_user()
+{
+	SIMPLI_log_call "[$FUNCNAME($*)]"
+	## nothing, apt only
+	return 0
+}
+ensure_make_installed_user()
+{
+	SIMPLI_log_call "[$FUNCNAME($*)]"
+	## nothing, apt only
+	return 0
+}
+
+ensure_make_sourced()
 {
 	SIMPLI_log_call "[$FUNCNAME($*)]"
 	## nothing
 	return 0
 }
 
-get_installed_tool-gcc_summary()
+## output one-line info (version, build, etc.)
+get_installed_make_summary()
 {
-	get_installed_tool-gcc_version
+	## version is a paragraph beginning with line "GNU Make x.y.z"
+
+	make --version | grep 'GNU Make'
 }
 
-get_installed_tool-gcc_version()
+get_installed_make_version()
 {
-	# nice
-	gcc -dumpversion
+	#TODO
 }
 
 return 0

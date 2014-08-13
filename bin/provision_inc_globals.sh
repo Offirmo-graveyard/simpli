@@ -13,6 +13,12 @@ else
 fi
 
 
+## Should we avoid critical operations ?
+## (useful while testing for ex.)
+## Critical = any op which may destroy important stuff/feature, ex. overwriting ssh keys
+SIMPLI_SHOULD_AVOID_CRITICAL_OPS=false
+
+
 ## WARNING Those dirs must be mirrored in index.sh
 
 ## place where we'll put stuff installed with sudo
