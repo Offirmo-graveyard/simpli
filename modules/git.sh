@@ -97,7 +97,7 @@ require_git_repo()
 }
 
 
-##
+## internal use only !
 PRLIB_compute_git_dest_dir()
 {
 	local repository="$1"

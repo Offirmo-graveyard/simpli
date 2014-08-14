@@ -43,13 +43,13 @@ ensure_make_sourced()
 get_installed_make_summary()
 {
 	## version is a paragraph beginning with line "GNU Make x.y.z"
-
 	make --version | grep 'GNU Make'
 }
 
 get_installed_make_version()
 {
 	#TODO
+	foo
 }
 
 return 0

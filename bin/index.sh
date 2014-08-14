@@ -45,6 +45,7 @@ OSL_OUTPUT_display_success_message "*** $SIMPLI_NAME ***"
 OSL_OUTPUT_notify "v$SIMPLI_VERSION ($SIMPLI_STAMP)"
 source $SIMPLI_DIR/bin/provision_inc_globals.sh
 OSL_OUTPUT_notify "Running as $SIMPLI_EXEC_MODE"
+OSL_OUTPUT_notify "Lib root is $SIMPLI_DIR"
 source $SIMPLI_DIR/bin/provision_lib_modules.sh
 source $SIMPLI_DIR/bin/provision_lib_require.sh
 source $SIMPLI_DIR/bin/provision_lib_require_misc.sh
