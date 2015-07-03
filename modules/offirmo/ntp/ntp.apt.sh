@@ -6,33 +6,33 @@ SIMPLI_log_source `basename "$BASH_SOURCE"`
 require_apt_packet  ntp
 
 
-check_ntp_installed_sudo()
+check_offirmo_ntp_installed_root()
 {
 	SIMPLI_log_call "[$FUNCNAME($*)]"
 	## nothing	## nothing, apt only
 	return 0
 }
-ensure_ntp_installed_sudo()
+ensure_offirmo_ntp_installed_root()
 {
 	SIMPLI_log_call "[$FUNCNAME($*)]"
 	## nothing, apt only
 	return 0
 }
 
-check_ntp_installed_user()
+check_offirmo_ntp_installed_user()
 {
 	SIMPLI_log_call "[$FUNCNAME($*)]"
 	## nothing, apt only
 	return 0
 }
-ensure_ntp_installed_user()
+ensure_offirmo_ntp_installed_user()
 {
 	SIMPLI_log_call "[$FUNCNAME($*)]"
 	## nothing, apt only
 	return 0
 }
 
-ensure_ntp_sourced()
+ensure_offirmo_ntp_sourced()
 {
 	#SIMPLI_log_call "[$FUNCNAME($*)]"
 	## nothing
@@ -40,16 +40,16 @@ ensure_ntp_sourced()
 }
 
 ## output one-line info (version, build, etc.)
-get_installed_ntp_summary()
+get_installed_offirmo_ntp_summary()
 {
 	## version is on two lines
 	ntpd --version | head -n 1
 }
 
-get_installed_ntp_version()
+get_installed_offirmo_ntp_version()
 {
-	#TODO
-	ntpd --version | head -n 1
+	echo "TODO ntp version"
+
 }
 
 return 0

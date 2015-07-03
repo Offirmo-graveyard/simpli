@@ -1,15 +1,16 @@
-## Shell provision script for
+## Shell provision script for :
 ## exiftool
 ## http://www.sno.phy.queensu.ca/~phil/exiftool
 
 SIMPLI_log_source `basename "$BASH_SOURCE"`
 
 ## prerequisites :
+require_apt_packet  build-essential  ## since we build from source
 require_apt_packet  perl
 require_apt_packet  wget
 
 
-check_exiftool_installed_sudo()
+check_offirmo_exiftool_installed_root()
 {
 	SIMPLI_log_call "[$FUNCNAME($*)]"
 
@@ -24,21 +25,23 @@ check_exiftool_installed_sudo()
 
 	return 1
 }
-ensure_exiftool_installed_sudo()
+ensure_offirmo_exiftool_installed_root()
 {
 	SIMPLI_log_call "[$FUNCNAME($*)]"
 
-	local archive="$SUDO_TEMP_AREA_PATH/Image-ExifTool-9.53.tar.gz"
-	local dest_dir="$SUDO_BIN_AREA_PATH/Image-ExifTool_9.53"
+	local archive="$ROOT_TEMP_AREA_PATH/Image-ExifTool-9.53.tar.gz"
+	local dest_dir="$ROOT_BIN_AREA_PATH/Image-ExifTool_9.53"
 
 	if [[ ! -f "${archive}" ]]; then
 		## safe download
+		rm -rf "${archive}.temp"
 		wget http://www.sno.phy.queensu.ca/~phil/exiftool/Image-ExifTool-9.53.tar.gz --output-document="${archive}.temp"
 		[[ $? -ne 0 ]] && rm "${archive}.temp" && return 1
 		mv "${archive}.temp" "${archive}"
 	fi
 
 	## safe unpack
+	rm -rf "${dest_dir}.temp"
 	OSL_ARCHIVE_unpack_to "${archive}" "${dest_dir}.temp"
 	[[ $? -ne 0 ]] && rm -rf "${dest_dir}.temp" && return 1
 	mv "${dest_dir}.temp" "${dest_dir}"
@@ -52,20 +55,20 @@ ensure_exiftool_installed_sudo()
 	return $res
 }
 
-check_exiftool_installed_user()
+check_offirmo_exiftool_installed_user()
 {
 	SIMPLI_log_call "[$FUNCNAME($*)]"
-	## sudo only
+	## root only
 	return 0
 }
-ensure_exiftool_installed_user()
+ensure_offirmo_exiftool_installed_user()
 {
 	SIMPLI_log_call "[$FUNCNAME($*)]"
-	## sudo only
+	## root only
 	return 0
 }
 
-ensure_exiftool_sourced()
+ensure_offirmo_exiftool_sourced()
 {
 	#SIMPLI_log_call "[$FUNCNAME($*)]"
 	## nothing
@@ -73,12 +76,12 @@ ensure_exiftool_sourced()
 }
 
 ## output one-line info (version, build, etc.)
-get_installed_exiftool_summary()
+get_installed_offirmo_exiftool_summary()
 {
-	get_installed_exiftool_version
+	get_installed_offirmo_exiftool_version
 }
 
-get_installed_exiftool_version()
+get_installed_offirmo_exiftool_version()
 {
 	# nice
 	exiftool -ver

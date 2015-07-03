@@ -6,45 +6,45 @@ SIMPLI_log_source `basename "$BASH_SOURCE"`
 require_apt_packet build-essential
 
 
-check_gcc_installed_sudo()
+check_offirmo_gcc_installed_root()
 {
 	SIMPLI_log_call "[$FUNCNAME($*)]"
 	## nothing, apt only
 	return 0
 }
-ensure_gcc_installed_sudo()
-{
-	SIMPLI_log_call "[$FUNCNAME($*)]"
-	## nothing, apt only
-	return 0
-}
-
-check_gcc_installed_user()
-{
-	SIMPLI_log_call "[$FUNCNAME($*)]"
-	## nothing, apt only
-	return 0
-}
-ensure_gcc_installed_user()
+ensure_offirmo_gcc_installed_root()
 {
 	SIMPLI_log_call "[$FUNCNAME($*)]"
 	## nothing, apt only
 	return 0
 }
 
-ensure_gcc_sourced()
+check_offirmo_gcc_installed_user()
+{
+	SIMPLI_log_call "[$FUNCNAME($*)]"
+	## nothing, apt only
+	return 0
+}
+ensure_offirmo_gcc_installed_user()
+{
+	SIMPLI_log_call "[$FUNCNAME($*)]"
+	## nothing, apt only
+	return 0
+}
+
+ensure_offirmo_gcc_sourced()
 {
 	SIMPLI_log_call "[$FUNCNAME($*)]"
 	## nothing
 	return 0
 }
 
-get_installed_gcc_summary()
+get_installed_offirmo_gcc_summary()
 {
-	get_installed_gcc_version
+	get_installed_offirmo_gcc_version
 }
 
-get_installed_gcc_version()
+get_installed_offirmo_gcc_version()
 {
 	# nice
 	gcc -dumpversion

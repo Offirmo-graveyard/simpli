@@ -1,20 +1,22 @@
-## Shell provision script for
-## Open Search Server
+## Shell provision script for :
+## (some tool)
+## (url)
 
 SIMPLI_log_source `basename "$BASH_SOURCE"`
 
 ## prerequisites :
-require jdk '~7'
+## (none)
+## require_apt_packet …
 
 
-check_oss_installed_sudo()
+check_xxx-example_installed_root()
 {
 	SIMPLI_log_call "[$FUNCNAME($*)]"
 	OSL_OUTPUT_warn_not_implemented "[$FUNCNAME()]"
 	## nothing
 	return 1
 }
-ensure_oss_installed_sudo()
+ensure_xxx-example_installed_root()
 {
 	OSL_debug "[$FUNCNAME($*)]"
 	OSL_OUTPUT_warn_not_implemented "[$FUNCNAME()]"
@@ -22,14 +24,14 @@ ensure_oss_installed_sudo()
 	return 1
 }
 
-check_oss_installed_user()
+check_xxx-example_installed_user()
 {
 	OSL_debug "[$FUNCNAME($*)]"
 	OSL_OUTPUT_warn_not_implemented "[$FUNCNAME()]"
 	## nothing
 	return 1
 }
-ensure_oss_installed_user()
+ensure_xxx-example_installed_user()
 {
 	OSL_debug "[$FUNCNAME($*)]"
 	OSL_OUTPUT_warn_not_implemented "[$FUNCNAME()]"
@@ -37,7 +39,7 @@ ensure_oss_installed_user()
 	return 1
 }
 
-ensure_oss_sourced()
+ensure_xxx-example_sourced()
 {
 	#OSL_debug "[$FUNCNAME($*)]"
 	OSL_OUTPUT_warn_not_implemented "[$FUNCNAME()]"
@@ -46,10 +48,18 @@ ensure_oss_sourced()
 }
 
 ## output one-line info (version, build, etc.)
-get_installed_oss_summary()
+get_installed_xxx-example_summary()
 {
-	#OSL_debug "[$FUNCNAME($*)]"
-	ensure_oss_sourced
+	ensure_xxx-example_sourced
+
+	OSL_OUTPUT_warn_not_implemented "[$FUNCNAME()]"
+	return 1
+}
+
+get_installed_xxx-example_version()
+{
+	ensure_xxx-example_sourced
+
 	OSL_OUTPUT_warn_not_implemented "[$FUNCNAME()]"
 	return 1
 }

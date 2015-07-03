@@ -17,28 +17,36 @@ echo "  - LC_ALL ? `echo $LC_ALL`"
 ## safety
 export LC_ALL="en_US.UTF-8"
 
-## prepare env
-#OSL_debug_activated=true
+## configure env
+OSL_debug_activated=true
+SIMPLI_SHOULD_AVOID_CRITICAL_OPS=true ## so far
+SIMPLI_MODULE_JAVA_PREFER_OPENJDK=false ## use an unnamed other provider
 
 ## Are we running on a vagrant-generated machine, presumably launched by vagrant-provision ?
 ## Or on a test machine launched by hand ?
 if [[ -d /vagrant ]]; then
 	## most likely launched by vagrant-provision, in which case we are in some unknown dir
 	cd /vagrant/provisioning
+	SIMPLI_SHOULD_AVOID_CRITICAL_OPS=false
 fi
 
-## TODO add special apt sources here before loading simpli
+## add special apt sources here before loading simpli
 ## (no need to update/upgrade, simpli will do it)
+if [[ $SIMPLI_EXEC_MODE == "root" ]]; then
+	apt-get install python-software-properties
+	## for oracle java
+	add-apt-repository ppa:webupd8team/java
+fi
 
-## import lib
+## source the SIMPLI lib
 source ../bin/index.sh
 
 ## setup ssh key(s)
 require_ssh_config_from toto
 
 ## provision our stuff
-require ntp
-require git '^1.8.2'
+require offirmo/ntp
+require offirmo/git '^1.8.2'
 
 # manual
 #require_apt_packet man
@@ -54,7 +62,7 @@ require_apt_packet htop
 # useful for misc operations. Also useful for some wordpress plugins
 require_apt_packet zip
 
-require nvm
+require offirmo/nvm
 NODE_VERSION='0.10.30'
 #require_nvm_node $NODE_VERSION
 #require_npm_global_module npm_lazy
@@ -71,7 +79,7 @@ NODE_VERSION='0.10.30'
 
 	#require_git_repo  git@github.com:Thibaut/devdocs.git
 #fi
-require ruby '^2.1'
+require offirmo/ruby '^2.1'
 gem env
 
 ## display a summary (user-mode only)

@@ -3,6 +3,5 @@ Respect .editorconfig
 
 Use bash, shebang #! /bin/bash
 
-* prefix commented out code with one #
-* prefix comments with 2# = ##
-
+* comment out code with one #
+* comment text with 2# = ##

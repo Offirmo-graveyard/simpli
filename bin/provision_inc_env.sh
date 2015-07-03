@@ -12,5 +12,5 @@
 
 ### Current stamp and version
 SIMPLI_NAME="Offirmo SIMPLI : SIMple Provisioning LIbrary"
-SIMPLI_VERSION="0.0.1"
-SIMPLI_STAMP="2014/08/08"
+SIMPLI_VERSION="0.0.3"
+SIMPLI_STAMP="2015/07/03"

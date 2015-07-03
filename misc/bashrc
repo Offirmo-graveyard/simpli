@@ -1,0 +1,15 @@
+## REM : this file is meant to conveniently complement ~/.bashrc
+##       It is supposed to run in login and non-login shells, after ~/.bashrc
+
+echo "hello from shared bashrc"
+
+## useful function
+source_bash_files_from_dir()
+{
+	local target="$1/*"
+
+	for file in $target
+	do
+		[ -f "$file" ] && source "$file"
+	done
+}

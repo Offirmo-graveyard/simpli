@@ -17,7 +17,7 @@ There had to be another way to do it. Time to try it my way !
 How simple ?
 ============
 
-* written in bash, nothing to install (ruby, binary, etc.)
+* written in bash, nothing to install (no ruby, no binaries, etc.)
 * thanks to bash, you write your install steps naturally, no need to constrict them in another language
 * modular design : import and use custom or pre-written modules
 * clear separation between root stuff and user stuff
@@ -26,17 +26,50 @@ How simple ?
 
 Should I use it ?
 =================
+NO. Too early.
 
-TODO
+Only works on apt-based systems.
+
 
 How do I use it ?
 =================
 
 https://docs.google.com/spreadsheets/d/1s7fYxqqWLO5S1nSF_XQ7CbU48fp-PkmPbsBrgor9JLc
 
+
+/work                       ROOT_WORKING_AREA_PATH
+/work/temp                  ROOT_TEMP_AREA_PATH
+/work/provisioning          ROOT_ENV_FILE           <-- do not touch, simpli internal use only
+/work/bin                   ROOT_BIN_AREA_PATH
+/work/bin/.bashrc           ROOT_ENV_FILE
+
+
+~/work                      USER_WORKING_AREA_PATH
+~/work/temp                 USER_TEMP_AREA_PATH
+~/work/bin                  USER_BIN_AREA_PATH
+~/work/src                  USER_SRC_AREA_PATH
+~/work/bin/.bashrc          USER_ENV_FILE
+
+
+module :
+offirmo/foo
+ foo.apt.sh
+ foo.apt.prepare.sh
+ foo.yum.sh
+ foo.manual.sh
+ foo.common.sh
+ 
+check_${module_fn_id}_installed
+ensure_${module_fn_id}_installed_root
+check_${module_fn_id}_installed_user
+ensure_${module_fn_id}_installed_user
+ensure_${module_fn_id}_sourced
+get_installed_${module_fn_id}_summary
+ 
 apt
 
 env lines
+
 
 dirs
 
