@@ -1,4 +1,9 @@
 
+0.1.0 *API break*
+- changed "manual" to "unmanaged"
+- improved tests
+- added tests
+
 0.0.3 - 2015/07/03 *API break*
 - upgraded underlying OSL lib to fix a major bug
 - new namespacing of modules

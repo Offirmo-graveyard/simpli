@@ -19,7 +19,7 @@ check_offirmo_exiftool_installed_root()
 	[[ $? -ne 0 ]] && return 1
 
 	## now check version
-	local version=`get_exiftool_version`
+	local version=`get_installed_offirmo_exiftool_version`
 	## TODO enhance
 	[[ "$version" = "9.53" ]] && return 0
 

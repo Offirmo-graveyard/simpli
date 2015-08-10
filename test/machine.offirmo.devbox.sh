@@ -1,7 +1,7 @@
 #! /bin/bash
 
 ## Shell provision script for
-## a machine able to run lehuit
+## a convenient development machine
 
 echo "###################"
 echo "# Offirmo dev box #"
@@ -45,14 +45,19 @@ source ../bin/index.sh
 require_ssh_config_from toto
 
 ## provision our stuff
+
+## for remote ssh access
+require_apt_packet openssh-server
+## convenient for staying up to date
 require offirmo/ntp
-require offirmo/git '^1.8.2'
+## basis of the basis
+require offirmo/git
 
-# manual
-#require_apt_packet man
+## manual
+require_apt_packet man
 
-# A useful resource monitoring tool.
-# Just run it to test it.
+## A useful resource monitoring tool.
+## Just run it to test it.
 require_apt_packet dstat
 
 # A useful resource monitoring tool. (better than 'top')

@@ -113,14 +113,14 @@ if [[ $SIMPLI_EXEC_MODE == "root" ]]; then
 	install_apt_sources
 
 	## resume actual provisionning
-	SIMPLI_debug "* SIMPLI_SKIP_APT_UPDATE ? $SIMPLI_SKIP_APT_UPDATE"
+	SIMPLI_debug "SIMPLI_SKIP_APT_UPDATE = $SIMPLI_SKIP_APT_UPDATE"
 	if [[ -z $SIMPLI_SKIP_APT_UPDATE ]]; then
 		apt-get update
 		OSL_EXIT_abort_execution_if_bad_retcode $? "Error updating apt !"
 	fi
 
 	## keep our machine up to date
-	SIMPLI_debug "* SIMPLI_SKIP_APT_UPGRADE ? $SIMPLI_SKIP_APT_UPGRADE"
+	SIMPLI_debug "SIMPLI_SKIP_APT_UPGRADE = $SIMPLI_SKIP_APT_UPGRADE"
 	if [[ -z $SIMPLI_SKIP_APT_UPGRADE ]]; then
 		apt-get upgrade --yes
 		OSL_EXIT_abort_execution_if_bad_retcode $? "Error upgrading apt packets !"

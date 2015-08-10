@@ -5,13 +5,10 @@
 # export SIMPLI_SKIP_APT_UPDATE=true
 # export SIMPLI_SKIP_APT_UPGRADE=true
 
-source ../../../../test/test_common.sh "docker module provisionning - apt mode"
+source ../../../../test/test_common.sh "gcc module provisionning - apt mode"
 
 function install_apt_sources() {
-	## add special apt sources here before loading simpli
-	. "$TEST_DIR/../docker.apt.prepare.sh"
-	OSL_EXIT_abort_execution_if_bad_retcode $? "Couldn't install apt sources"
-	OSL_OUTPUT_display_success_message "* apt sources installed OK"
+	do_nothing=1
 }
 
 ## now load simpli which will do apt-get update
@@ -19,7 +16,7 @@ source "${SIMPLI_DIR}/bin/index.sh"
 OSL_EXIT_abort_execution_if_bad_retcode $?
 
 ## provision our stuff
-require offirmo/docker
+require offirmo/gcc
 OSL_EXIT_abort_execution_if_bad_retcode $?
 
 ## display a summary (user-mode only)

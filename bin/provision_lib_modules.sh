@@ -52,8 +52,8 @@ load_module_definition()
 		source  "$SIMPLI_DIR/modules/$module_id/$module_base.apt.sh"
 	elif [[ -f "$SIMPLI_DIR/modules/$module_id/$module_base.yum.sh" ]]; then
 		source  "$SIMPLI_DIR/modules/$module_id/$module_base.yum.sh"
-	elif [[ -f "$SIMPLI_DIR/modules/$module_id/$module_base.manual.sh" ]]; then
-		source  "$SIMPLI_DIR/modules/$module_id/$module_base.manual.sh"
+	elif [[ -f "$SIMPLI_DIR/modules/$module_id/$module_base.unmanaged.sh" ]]; then
+		source  "$SIMPLI_DIR/modules/$module_id/$module_base.unmanaged/.sh"
 	else
 		OSL_EXIT_abort_execution_with_message "couldn't find module definition for '$module_id' !"
 	fi

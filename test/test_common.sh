@@ -19,7 +19,7 @@ source osl_lib_output.sh
 source osl_lib_exit.sh
 
 if [[ `id -u` -eq 0 ]]; then
-	OSL_OUTPUT_warn "script run as root"
+	OSL_OUTPUT_warn "test script run as root"
 else
-	OSL_OUTPUT_display_success_message "* script run as user"
+	OSL_OUTPUT_display_success_message "* test script run as user"
 fi
