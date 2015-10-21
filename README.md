@@ -36,7 +36,7 @@ How do I use it ?
 
 https://docs.google.com/spreadsheets/d/1s7fYxqqWLO5S1nSF_XQ7CbU48fp-PkmPbsBrgor9JLc
 
-
+```
 /work                       ROOT_WORKING_AREA_PATH
 /work/temp                  ROOT_TEMP_AREA_PATH
 /work/provisioning          ROOT_ENV_FILE           <-- do not touch, simpli internal use only
@@ -74,3 +74,12 @@ env lines
 dirs
 
 version managers
+```
+
+Licence
+=======
+Code itself is "unlicensed" (http://choosealicense.com/licenses/unlicense/)
+
+Several 3rd-party libs are used, which have their own license :
+* semver_bash https://github.com/cloudflare/semver_bash
+* offirmo-shell-lib https://github.com/Offirmo/offirmo-shell-lib
